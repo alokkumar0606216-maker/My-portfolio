@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Password Generator | Web Tool</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="pass-wrapper">
+        <header class="app-header">
+            <a href="../../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Portfolio</a>
+            <button class="theme-toggle" id="theme-btn" title="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+        </header>
+
+        <div class="pass-card">
+            <div class="card-top">
+                <div class="shield-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h2>Password Generator</h2>
+                <p>Generate strong, secure, and randomized passwords instantly</p>
+            </div>
+
+            <!-- Display Box -->
+            <div class="display-box">
+                <input type="text" id="password-display" readonly placeholder="Click Generate Below">
+                <button class="copy-btn" id="copy-btn" title="Copy to clipboard">
+                    <i class="fa-regular fa-copy"></i>
+                    <span class="tooltip" id="copy-tooltip">Copied!</span>
+                </button>
+            </div>
+
+            <!-- Strength Meter -->
+            <div class="strength-meter-container">
+                <div class="strength-labels">
+                    <span>Password Strength:</span>
+                    <strong id="strength-text">Medium</strong>
+                </div>
+                <div class="strength-bars">
+                    <span class="bar" id="bar-1"></span>
+                    <span class="bar" id="bar-2"></span>
+                    <span class="bar" id="bar-3"></span>
+                    <span class="bar" id="bar-4"></span>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls-section">
+                <!-- Length Slider -->
+                <div class="slider-group">
+                    <div class="slider-label">
+                        <span>Password Length</span>
+                        <span class="length-count" id="length-val">16</span>
+                    </div>
+                    <input type="range" id="length-slider" min="6" max="32" value="16">
+                </div>
+
+                <!-- Checkbox Options -->
+                <div class="options-grid">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="include-upper" checked>
+                        <span class="custom-check"></span>
+                        <span>Uppercase Letters (A-Z)</span>
+                    </label>
+
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="include-lower" checked>
+                        <span class="custom-check"></span>
+                        <span>Lowercase Letters (a-z)</span>
+                    </label>
+
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="include-numbers" checked>
+                        <span class="custom-check"></span>
+                        <span>Include Numbers (0-9)</span>
+                    </label>
+
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="include-symbols" checked>
+                        <span class="custom-check"></span>
+                        <span>Include Symbols (!@#$%)</span>
+                    </label>
+                </div>
+
+                <!-- Generate Button -->
+                <button class="generate-btn" id="generate-btn">
+                    <i class="fa-solid fa-arrows-rotate"></i> Generate Password
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

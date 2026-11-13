@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBox App | Real-time Messaging</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-app-container">
+        <!-- Sidebar -->
+        <aside class="chat-sidebar">
+            <div class="sidebar-header">
+                <div class="user-profile">
+                    <div class="avatar online">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <h3>Alok Kumar</h3>
+                        <span class="status-badge"><span class="dot"></span> Online</span>
+                    </div>
+                </div>
+                <a href="../../index.html" class="back-home-btn" title="Back to Portfolio">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </div>
+
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search-contacts" placeholder="Search chats...">
+            </div>
+
+            <div class="contacts-list">
+                <div class="contact-item active" data-name="Dev Community" data-role="Tech Group">
+                    <div class="avatar group-avatar">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-top">
+                            <h4>Dev Community</h4>
+                            <span class="time">Just now</span>
+                        </div>
+                        <p class="preview-text">Welcome to the ChatBox App!</p>
+                    </div>
+                </div>
+
+                <div class="contact-item" data-name="Sarah Jenkins" data-role="Frontend Engineer">
+                    <div class="avatar online">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-top">
+                            <h4>Sarah Jenkins</h4>
+                            <span class="time">10:45 AM</span>
+                        </div>
+                        <p class="preview-text">The new UI design looks awesome!</p>
+                    </div>
+                </div>
+
+                <div class="contact-item" data-name="Rahul Sharma" data-role="Backend Lead">
+                    <div class="avatar">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-top">
+                            <h4>Rahul Sharma</h4>
+                            <span class="time">Yesterday</span>
+                        </div>
+                        <p class="preview-text">API endpoints are ready for testing.</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-main">
+            <!-- Chat Header -->
+            <header class="chat-header">
+                <div class="current-chat-user">
+                    <div class="avatar group-avatar" id="active-avatar">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div>
+                        <h3 id="active-chat-name">Dev Community</h3>
+                        <span class="active-status"><span class="dot"></span> Active Now</span>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn" title="Search messages"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button class="icon-btn" title="Phone Call"><i class="fa-solid fa-phone"></i></button>
+                    <button class="icon-btn" title="Video Call"><i class="fa-solid fa-video"></i></button>
+                    <button class="icon-btn" id="theme-btn" title="Toggle Dark/Light Mode"><i class="fa-solid fa-moon"></i></button>
+                </div>
+            </header>
+
+            <!-- Messages Stream -->
+            <div class="chat-messages" id="chat-messages">
+                <div class="date-divider"><span>Today</span></div>
+
+                <div class="message incoming">
+                    <div class="message-content">
+                        <p>Hey Alok! Welcome to the new ChatBox App demo 🚀</p>
+                        <span class="msg-time">10:00 AM</span>
+                    </div>
+                </div>
+
+                <div class="message incoming">
+                    <div class="message-content">
+                        <p>Type any message below and hit send to test live chat simulation!</p>
+                        <span class="msg-time">10:01 AM</span>
+                    </div>
+                </div>
+
+                <div class="message outgoing">
+                    <div class="message-content">
+                        <p>Thanks! Testing real-time responsiveness and UI styling ✨</p>
+                        <span class="msg-time">10:02 AM <i class="fa-solid fa-check-double read-check"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Input Bar -->
+            <form class="chat-input-bar" id="chat-form">
+                <button type="button" class="tool-btn" title="Add Emoji"><i class="fa-regular fa-face-smile"></i></button>
+                <button type="button" class="tool-btn" title="Attach file"><i class="fa-solid fa-paperclip"></i></button>
+                <input type="text" id="message-input" placeholder="Type your message..." autocomplete="off" required>
+                <button type="submit" class="send-btn" title="Send Message">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </form>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Web Developer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header & Navbar -->
+    <header class="header" id="header">
+        <nav class="navbar container">
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                    <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="#certifications" class="nav-link">Certifications</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-close" id="nav-close">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+
+            <div class="nav-actions">
+                <!-- Theme Toggle Button (Separate) -->
+                <button class="theme-toggle" id="theme-toggle" title="Toggle Theme" aria-label="Toggle dark/light mode">
+                    <i class="fa-solid fa-moon" id="theme-icon"></i>
+                </button>
+
+                <!-- Resume Button (Separate) -->
+                <a href="Documents/resume.pdf" class="btn btn-sm btn-outline nav-btn" id="resume-btn" title="View & Download Resume">
+                    <i class="fa-solid fa-file-arrow-down"></i>
+                    <span>Resume</span>
+                </a>
+
+                <!-- Hire Me Button (Dark Box with White Text) -->
+                <a href="https://www.linkedin.com/in/alokkumar004" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-dark nav-btn hire-me-btn">
+                    <span>Hire Me</span>
+                </a>
+
+                <!-- Hamburger Menu for Mobile -->
+                <div class="nav-toggle" id="nav-toggle" aria-label="Open menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero section" id="home">
+            <div class="hero-container container grid">
+                <div class="hero-content">
+                    <span class="hero-subtitle"><strong>Hello, I'm</strong></span>
+                    <h1 class="hero-title">Alok Kumar</h1>
+                    <h3 class="hero-profession"><span class="typing-text"></span></h3>
+                    <p class="hero-description">
+                        A passionate developer specializing in building exceptional digital experiences, modern websites, and web applications.
+                    </p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-black btn-hero">View Project</a>
+                        <a href="Documents/resume.pdf" class="btn btn-outline-hero btn-hero" id="hero-resume-btn" title="View & Download Resume">View Resume</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section" id="about">
+            <div class="container">
+                <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+                <div class="section-title-underline"></div>
+
+                <div class="about-container grid">
+                    <!-- Square Shape Image / Avatar in About Section -->
+                    <div class="about-img-box">
+                        <div class="about-img-wrapper">
+                            <div class="about-avatar-placeholder">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-data">
+                        <p class="about-description">
+                            I'm a <strong>3rd-year B.Tech student in Information Technology</strong> at <strong>Narula Institute of Technology</strong>, and a frontend &amp; backend-focused developer with strong fundamentals in creating modern and responsive websites.
+                        </p>
+                        <p class="about-description">
+                            I enjoy working on both front-end and back-end development and continuously learning new technologies to improve my skills. My goal is to build user-friendly and innovative web applications that solve real-world problems.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills section" id="skills">
+            <div class="container">
+                <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+                <div class="section-title-underline"></div>
+
+                <div class="skills-grid-wrapper">
+                    <!-- 1. HTML5 -->
+                    <div class="skill-card">
+                        <div class="skill-card-icon">
+                            <i class="fa-brands fa-html5" style="color: #e34f26;"></i>
+                        </div>
+                        <h4 class="skill-card-name">HTML5</h4>
+                    </div>
+
+                    <!-- 2. CSS3 -->
+                    <div class="skill-card">
+                        <div class="skill-card-icon">
+                            <i class="fa-brands fa-css3-alt" style="color: #1572b6;"></i>
+                        </div>
+                        <h4 class="skill-card-name">CSS3</h4>
+                    </div>
+
+                    <!-- 3. Tailwind CSS -->
+                    <div class="skill-card">
+                        <div class="skill-card-icon">
+                            <svg viewBox="0 0 24 24" width="46" height="46" fill="none">
+                                <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.336 6.182 14.975 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.336 13.382 8.975 12 6.001 12z" fill="#06B6D4"/>
+                            </svg>
+                        </div>
+                        <h4 class="skill-card-name">Tailwind CSS</h4>
+                    </div>
+
+                    <!-- 4. JavaScript -->
+                    <div class="skill-card">
+                        <div class="skill-card-icon">
+                            <i class="fa-brands fa-square-js" style="color: #f7df1e;"></i>
+                        </div>
+                        <h4 class="skill-card-name">JavaScript</h4>
+                    </div>
+
+                    <!-- 5. React -->
+                    <div class="skill-card">
+                        <div class="skill-card-icon">
+                            <i class="fa-brands fa-react" style="color: #00d8ff;"></i>
+                        </div>
+                        <h4 class="skill-card-name">React</h4>
+                    </div>
+
+                    <!-- 6. Python -->
+                    <div class="skill-card">
+                        <div class="skill-card-icon">
+                            <i class="fa-brands fa-python" style="color: #3776ab;"></i>
+                        </div>
+                        <h4 class="skill-card-name">Python</h4>
+                    </div>
+
+                    <!-- 7. Django -->
+                    <div class="skill-card">
+                        <div class="skill-card-icon">
+                            <svg viewBox="0 0 24 24" width="46" height="46" fill="#0c4b33">
+                                <path d="M11.146 0h3.924v18.792c-1.924.367-3.328.489-4.887.489-4.953 0-7.399-2.14-7.399-6.357 0-4.278 2.69-6.724 6.848-6.724 1.04 0 1.956.122 2.764.367V0h-1.249zm0 9.843c-.733-.244-1.467-.367-2.2-.367-2.384 0-3.791 1.284-3.791 3.913 0 2.446 1.284 3.73 3.607 3.73.673 0 1.345-.061 2.384-.245V9.843zM21.144 6.786h3.913v17.214h-3.913V6.786zm0-6.786h3.913v4.4h-3.913V0z"/>
+                            </svg>
+                        </div>
+                        <h4 class="skill-card-name">Django</h4>
+                    </div>
+
+                    <!-- 8. FastAPI -->
+                    <div class="skill-card">
+                        <div class="skill-card-icon">
+                            <svg viewBox="0 0 24 24" width="46" height="46">
+                                <circle cx="12" cy="12" r="11" fill="#009688"/>
+                                <path d="M12 4.5l-4.5 7h4l-2 8 6.5-9h-4l3-6h-3z" fill="#ffffff"/>
+                            </svg>
+                        </div>
+                        <h4 class="skill-card-name">FastAPI</h4>
+                    </div>
+
+                    <!-- 9. Git -->
+                    <div class="skill-card">
+                        <div class="skill-card-icon">
+                            <i class="fa-brands fa-git-alt" style="color: #f05032;"></i>
+                        </div>
+                        <h4 class="skill-card-name">Git</h4>
+                    </div>
+
+                    <!-- 10. GitHub -->
+                    <div class="skill-card">
+                        <div class="skill-card-icon">
+                            <i class="fa-brands fa-github" style="color: #24292e;"></i>
+                        </div>
+                        <h4 class="skill-card-name">GitHub</h4>
+                    </div>
+
+                    <!-- 11. MongoDB -->
+                    <div class="skill-card">
+                        <div class="skill-card-icon">
+                            <i class="fa-solid fa-leaf" style="color: #10b981;"></i>
+                        </div>
+                        <h4 class="skill-card-name">MongoDB</h4>
+                    </div>
+
+                    <!-- 12. SQL -->
+                    <div class="skill-card">
+                        <div class="skill-card-icon">
+                            <i class="fa-solid fa-table" style="color: #0284c7;"></i>
+                        </div>
+                        <h4 class="skill-card-name">SQL</h4>
+                    </div>
+
+                    <!-- 13. PostgreSQL -->
+                    <div class="skill-card">
+                        <div class="skill-card-icon">
+                            <i class="fa-solid fa-database" style="color: #336791;"></i>
+                        </div>
+                        <h4 class="skill-card-name">PostgreSQL</h4>
+                    </div>
+
+                    <!-- 14. MySQL -->
+                    <div class="skill-card">
+                        <div class="skill-card-icon">
+                            <i class="fa-solid fa-server" style="color: #f59e0b;"></i>
+                        </div>
+                        <h4 class="skill-card-name">MySQL</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects section" id="projects">
+            <div class="container">
+                <h2 class="section-title">My <span class="gradient-text">Projects</span></h2>
+                <div class="section-title-underline"></div>
+
+                <div class="projects-container grid">
+
+                    <!-- Project 1: ChatBox App -->
+                    <div class="project-card">
+                        <div class="project-img-box">
+                            <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=700&q=80" alt="ChatBox App" class="project-img" loading="lazy">
+                            <div class="project-badge-icon" title="ChatBox App">
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-tag">Full Stack App</span>
+                            <h3 class="project-title">ChatBox App</h3>
+                            <p class="project-description">Real-time chat application with user authentication, private messaging, group chats, and live online status using WebSockets.</p>
+                            <div class="project-links">
+                                <a href="projects/Chatbox/index.html" target="_blank" class="project-link" title="Live Preview"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                                <a href="https://github.com" target="_blank" class="project-link" title="Source Code"><i class="fa-brands fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Password Generator -->
+                    <div class="project-card">
+                        <div class="project-img-box">
+                            <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=700&q=80" alt="Password Generator" class="project-img" loading="lazy">
+                            <div class="project-badge-icon" title="Password Generator">
+                                <i class="fa-solid fa-key"></i>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-tag">Web Tool</span>
+                            <h3 class="project-title">Password Generator</h3>
+                            <p class="project-description">A secure password generator with customizable options — length, symbols, numbers, uppercase — and one-click clipboard copy.</p>
+                            <div class="project-links">
+                                <a href="projects/Password-Generator/index.html" target="_blank" class="project-link" title="Live Preview"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                                <a href="https://github.com" target="_blank" class="project-link" title="Source Code"><i class="fa-brands fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Library Management System -->
+                    <div class="project-card">
+                        <div class="project-img-box">
+                            <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=700&q=80" alt="Library Management System" class="project-img" loading="lazy">
+                            <div class="project-badge-icon" title="Library Management System">
+                                <i class="fa-solid fa-book-open"></i>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-tag">Backend System</span>
+                            <h3 class="project-title">Library Management System</h3>
+                            <p class="project-description">A complete library management system to manage books, members, issue/return records, fine calculation, and admin dashboard.</p>
+                            <div class="project-links">
+                                <a href="projects/Library-Management-System/index.html" target="_blank" class="project-link" title="Live Preview"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                                <a href="https://github.com" target="_blank" class="project-link" title="Source Code"><i class="fa-brands fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: E-Commerce Website -->
+                    <div class="project-card">
+                        <div class="project-img-box">
+                            <img src="https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=700&q=80" alt="E-Commerce Website" class="project-img" loading="lazy">
+                            <div class="project-badge-icon" title="E-Commerce Website">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-tag">Full Stack Web App</span>
+                            <h3 class="project-title">E-Commerce Website</h3>
+                            <p class="project-description">A fully functional e-commerce platform with product catalog, shopping cart, user authentication, and responsive checkout UI.</p>
+                            <div class="project-links">
+                                <a href="projects/E-Commerce-Website/index.html" target="_blank" class="project-link" title="Live Preview"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                                <a href="https://github.com" target="_blank" class="project-link" title="Source Code"><i class="fa-brands fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="certifications section" id="certifications">
+            <div class="container">
+                <h2 class="section-title">My <span class="gradient-text">Certificates</span></h2>
+                <div class="section-title-underline"></div>
+
+                <div class="certifications-container grid">
+                    <!-- Certificate: EduSkills Internship -->
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <div class="cert-icon-box">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                            <span class="cert-issuer">EduSkills Academy</span>
+                        </div>
+                        <div class="cert-content">
+                            <h3 class="cert-title">Python Full Stack Development With Project</h3>
+                            <p class="cert-date"><i class="fa-regular fa-calendar-days"></i> Issued: Aug 03, 2026 &bull; ID: 2026-35B61D5460</p>
+                            <p class="cert-description">8-week internship credential covering Python, FastAPI backend, React frontend, SQLAlchemy, and full-stack project development.</p>
+                            <a href="Documents/Certificates/Python-certificate.pdf" class="cert-link" target="_blank">View Certificate <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <div class="container">
+                <h2 class="section-title">Contact <span class="gradient-text">Me</span></h2>
+                <div class="section-title-underline"></div>
+
+                <div class="contact-container grid contact-centered">
+                    <!-- Contact Form + Social Icons below Send Button -->
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Enter your name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" rows="4" class="form-input form-textarea" placeholder="Write your message here..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary form-submit-btn">
+                            <span>Send Message</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                        <p class="form-status" id="contact-form-status" role="status" aria-live="polite"></p>
+
+                        <!-- Social Media Icons BELOW Send Message (Icons Only) -->
+                        <div class="form-social-section">
+                            <p class="form-social-label">Find me on social media</p>
+                            <div class="form-social-icons">
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="form-social-btn github" aria-label="GitHub" title="GitHub">
+                                    <i class="fa-brands fa-github"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/alokkumar004" target="_blank" rel="noopener noreferrer" class="form-social-btn linkedin" aria-label="LinkedIn" title="LinkedIn">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="form-social-btn facebook" aria-label="Facebook" title="Facebook">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="form-social-btn instagram" aria-label="Instagram" title="Instagram">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container container">
+            <p class="footer-copy">&copy; <span id="current-year"></span> All rights reserved. Designed with ❤️</p>
+        </div>
+    </footer>
+
+    <!-- Resume Modal (Preview & Download) -->
+    <div class="resume-modal" id="resume-modal" aria-hidden="true">
+        <div class="resume-modal-overlay" id="resume-modal-overlay"></div>
+        
+        <div class="resume-modal-container">
+            <!-- Modal Header -->
+            <div class="resume-modal-header">
+                <div class="resume-modal-title-box">
+                    <i class="fa-solid fa-file-lines resume-modal-icon"></i>
+                    <div>
+                        <h3 class="resume-modal-title">Curriculum Vitae</h3>
+                        <span class="resume-modal-subtitle">Preview & Download</span>
+                    </div>
+                </div>
+
+                <div class="resume-modal-actions">
+                    <!-- Download PDF Button -->
+                    <a href="Documents/resume.pdf" download="Alok_Kumar_Resume.pdf" class="btn btn-sm btn-primary" id="download-resume-btn" title="Download Resume PDF">
+                        <i class="fa-solid fa-download"></i>
+                        <span>Download PDF</span>
+                    </a>
+                    <!-- Open in New Tab -->
+                    <a href="Documents/resume.pdf" target="_blank" class="btn btn-sm btn-outline" id="open-tab-resume-btn" title="Open PDF in new tab">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Open Tab</span>
+                    </a>
+                    <!-- Print Button -->
+                    <button type="button" class="btn btn-sm btn-secondary modal-action-btn" id="print-resume-btn" title="Print Resume">
+                        <i class="fa-solid fa-print"></i>
+                    </button>
+                    <!-- Close Button -->
+                    <button type="button" class="resume-modal-close" id="resume-modal-close" aria-label="Close modal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal Body: Printable/Rendered Resume Preview -->
+            <div class="resume-modal-body">
+                <div class="resume-paper" id="resume-paper">
+                    <div class="resume-paper-header">
+                        <div class="resume-paper-intro">
+                            <h1 class="resume-name">Alok Kumar</h1>
+                            <p class="resume-role">Python &amp; Full Stack Web Developer</p>
+                        </div>
+                        <div class="resume-contact-meta">
+                            <span><i class="fa-solid fa-envelope"></i> your.email@example.com</span>
+                            <span><i class="fa-solid fa-phone"></i> +91 98765 43210</span>
+                            <span><i class="fa-solid fa-location-dot"></i> India</span>
+                            <span><i class="fa-brands fa-linkedin"></i> linkedin.com/in/alokkumar004</span>
+                        </div>
+                    </div>
+
+                    <hr class="resume-divider">
+
+                    <!-- Section: Summary -->
+                    <div class="resume-paper-section">
+                        <h4 class="resume-section-title"><i class="fa-solid fa-user"></i> Professional Summary</h4>
+                        <p class="resume-text">
+                            Passionate and detail-oriented Web Developer with expertise in building responsive, modern, and accessible web applications using HTML5, CSS3, JavaScript, and modern frameworks. Committed to writing clean, maintainable code and solving complex technical challenges.
+                        </p>
+                    </div>
+
+                    <!-- Section: Skills -->
+                    <div class="resume-paper-section">
+                        <h4 class="resume-section-title"><i class="fa-solid fa-laptop-code"></i> Technical Skills</h4>
+                        <div class="resume-skills-tags">
+                            <span class="resume-tag">Python</span>
+                            <span class="resume-tag">FastAPI</span>
+                            <span class="resume-tag">React.js</span>
+                            <span class="resume-tag">SQLAlchemy</span>
+                            <span class="resume-tag">HTML5</span>
+                            <span class="resume-tag">CSS3</span>
+                            <span class="resume-tag">JavaScript (ES6+)</span>
+                            <span class="resume-tag">Node.js</span>
+                            <span class="resume-tag">Git &amp; GitHub</span>
+                            <span class="resume-tag">REST APIs</span>
+                            <span class="resume-tag">MongoDB / SQL</span>
+                        </div>
+                    </div>
+
+                    <!-- Section: Experience & Projects -->
+                    <div class="resume-paper-section">
+                        <h4 class="resume-section-title"><i class="fa-solid fa-briefcase"></i> Experience & Projects</h4>
+                        <div class="resume-entry">
+                            <div class="resume-entry-header">
+                                <span class="resume-entry-title">Frontend Web Developer</span>
+                                <span class="resume-entry-date">2023 - Present</span>
+                            </div>
+                            <span class="resume-entry-sub">Personal & Freelance Projects</span>
+                            <ul class="resume-entry-list">
+                                <li>Developed and deployed responsive web applications with interactive UI components.</li>
+                                <li>Optimized web performance, accessibility, and cross-browser responsiveness.</li>
+                                <li>Utilized modern CSS Flexbox, Grid, and JavaScript ES6+ features for scalable architectures.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Section: Education -->
+                    <div class="resume-paper-section">
+                        <h4 class="resume-section-title"><i class="fa-solid fa-graduation-cap"></i> Education</h4>
+                        <div class="resume-entry">
+                            <div class="resume-entry-header">
+                                <span class="resume-entry-title">Bachelor of Technology / Computer Applications</span>
+                                <span class="resume-entry-date">2020 - 2024</span>
+                            </div>
+                            <span class="resume-entry-sub">University / Institute Name</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Top Button -->
+    <a href="#home" class="scroll-top" id="scroll-top" aria-label="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaStore | Modern E-Commerce Platform</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="store-header">
+        <div class="nav-container">
+            <!-- Brand Logo with Custom SVG -->
+            <a href="#" class="brand-logo" id="brand-logo">
+                <svg class="logo-svg" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="10" fill="url(#logo-grad)"/>
+                    <path d="M12 14H28L26 26H14L12 14Z" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 14V11C16 8.79086 17.7909 7 20 7C22.2091 7 24 8.79086 24 11V14" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+                    <circle cx="16" cy="29" r="1.5" fill="white"/>
+                    <circle cx="24" cy="29" r="1.5" fill="white"/>
+                    <defs>
+                        <linearGradient id="logo-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#4F46E5"/>
+                            <stop offset="1" stop-color="#06B6D4"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="logo-text">
+                    <span class="logo-title">Nova<span class="highlight">Store</span></span>
+                    <span class="logo-sub">Premium Tech</span>
+                </div>
+            </a>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search-input" placeholder="Search gadgets, audio, laptops...">
+            </div>
+
+            <!-- Header Actions -->
+            <div class="nav-actions">
+                <a href="../../index.html" class="portfolio-back" title="Back to Portfolio">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Portfolio</span>
+                </a>
+
+                <button class="icon-action theme-btn" id="theme-btn" title="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <!-- Cart Button -->
+                <button class="cart-btn" id="open-cart-btn" title="View Cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-badge" id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <span class="hero-tag"><i class="fa-solid fa-bolt"></i> New Season Arrivals</span>
+            <h1>Next-Gen Tech Gadgets Designed For You</h1>
+            <p>Explore exclusive deals on premium audio, mechanical keyboards, laptops, and smart accessories.</p>
+            <a href="#products-section" class="btn-shop">Explore Collection <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="store-main" id="products-section">
+        <!-- Category Filter Pills -->
+        <div class="category-filters">
+            <button class="filter-pill active" data-cat="all">All Products</button>
+            <button class="filter-pill" data-cat="audio">Audio</button>
+            <button class="filter-pill" data-cat="computing">Computing</button>
+            <button class="filter-pill" data-cat="accessories">Accessories</button>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="products-grid" id="products-grid">
+            <!-- Dynamic products loaded via JS -->
+        </div>
+    </main>
+
+    <!-- Slide-out Cart Drawer -->
+    <div class="cart-drawer-overlay" id="cart-overlay"></div>
+    <aside class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-bag-shopping"></i> Your Cart</h3>
+            <button class="close-cart" id="close-cart-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="cart-items-body" id="cart-items">
+            <!-- Dynamic items rendered -->
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-subtotal">
+                <span>Subtotal:</span>
+                <strong id="cart-total">$0.00</strong>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">
+                <i class="fa-solid fa-lock"></i> Checkout Now
+            </button>
+        </div>
+    </aside>
+
+    <footer class="store-footer">
+        <p>&copy; 2026 NovaStore. Built by Alok Kumar &bull; Full Stack E-Commerce</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
