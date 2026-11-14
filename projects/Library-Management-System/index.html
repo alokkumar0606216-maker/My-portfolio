@@ -3,142 +3,366 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Management System | Book Records & Catalog</title>
+    <title>LibriTrack | Library Management System</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- App Container -->
     <div class="library-app">
-        <!-- Top Navigation -->
+
+        <!-- Top Navigation Bar -->
         <header class="lib-header">
             <div class="lib-brand">
-                <a href="../../index.html" class="back-btn" title="Back to Portfolio"><i class="fa-solid fa-arrow-left"></i></a>
+                <a href="../../index.html#projects" class="back-btn" title="Back to Portfolio">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
                 <div class="brand-title">
-                    <i class="fa-solid fa-book-bookmark"></i>
-                    <h2>LibriTrack</h2>
+                    <div class="brand-icon">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                    </div>
+                    <div>
+                        <h2>LibriTrack</h2>
+                        <span class="brand-subtitle">Library Management System</span>
+                    </div>
                 </div>
             </div>
-            <div class="header-right">
-                <button class="add-book-btn" id="open-modal-btn">
-                    <i class="fa-solid fa-plus"></i> Add New Book
+
+            <div class="header-actions">
+                <button class="btn-primary" id="open-add-modal-btn">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Add New Book</span>
                 </button>
-                <button class="theme-toggle" id="theme-btn" title="Toggle Theme">
+                <button class="theme-toggle" id="theme-btn" title="Toggle Theme" aria-label="Toggle Dark/Light Mode">
                     <i class="fa-solid fa-moon"></i>
                 </button>
             </div>
         </header>
 
+        <!-- Main Content Area -->
         <main class="lib-main">
-            <!-- Summary Stats -->
+            <!-- Stats Dashboard Cards -->
             <section class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon total"><i class="fa-solid fa-books"></i></div>
-                    <div class="stat-info">
+                <div class="stat-card stat-total">
+                    <div class="stat-icon"><i class="fa-solid fa-books"></i></div>
+                    <div class="stat-content">
                         <span class="stat-label">Total Books</span>
-                        <h3 id="stat-total">0</h3>
+                        <h3 class="stat-value" id="stat-total">0</h3>
+                        <span class="stat-subtext" id="stat-genres-count">In catalog</span>
                     </div>
                 </div>
 
-                <div class="stat-card">
-                    <div class="stat-icon available"><i class="fa-solid fa-check"></i></div>
-                    <div class="stat-info">
+                <div class="stat-card stat-available">
+                    <div class="stat-icon"><i class="fa-solid fa-circle-check"></i></div>
+                    <div class="stat-content">
                         <span class="stat-label">Available</span>
-                        <h3 id="stat-available">0</h3>
+                        <h3 class="stat-value" id="stat-available">0</h3>
+                        <span class="stat-subtext">Ready for issue</span>
                     </div>
                 </div>
 
-                <div class="stat-card">
-                    <div class="stat-icon issued"><i class="fa-solid fa-hand-holding-hand"></i></div>
-                    <div class="stat-info">
+                <div class="stat-card stat-issued">
+                    <div class="stat-icon"><i class="fa-solid fa-hand-holding-hand"></i></div>
+                    <div class="stat-content">
                         <span class="stat-label">Issued / Borrowed</span>
-                        <h3 id="stat-issued">0</h3>
+                        <h3 class="stat-value" id="stat-issued">0</h3>
+                        <span class="stat-subtext">Active loans</span>
+                    </div>
+                </div>
+
+                <div class="stat-card stat-overdue">
+                    <div class="stat-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                    <div class="stat-content">
+                        <span class="stat-label">Categories</span>
+                        <h3 class="stat-value" id="stat-categories">0</h3>
+                        <span class="stat-subtext">Specialized genres</span>
                     </div>
                 </div>
             </section>
 
-            <!-- Table Card -->
-            <section class="table-card">
-                <div class="table-header">
-                    <div class="search-wrap">
+            <!-- Navigation Tabs -->
+            <div class="tabs-nav">
+                <button class="tab-btn active" data-tab="catalog">
+                    <i class="fa-solid fa-book"></i> Book Catalog (<span id="catalog-count">0</span>)
+                </button>
+                <button class="tab-btn" data-tab="loans">
+                    <i class="fa-solid fa-clipboard-list"></i> Issued Books (<span id="loans-count">0</span>)
+                </button>
+            </div>
+
+            <!-- Tab 1: Book Catalog -->
+            <section class="tab-pane active" id="tab-catalog">
+                <!-- Filter & Controls Toolbar -->
+                <div class="controls-toolbar">
+                    <div class="search-box">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" id="search-input" placeholder="Search by title, author, or genre...">
+                        <input type="text" id="search-input" placeholder="Search by title, author, ISBN or genre..." autocomplete="off">
+                        <button class="clear-search-btn" id="clear-search-btn" title="Clear Search">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
                     </div>
-                    <div class="filter-wrap">
-                        <select id="filter-status">
-                            <option value="all">All Statuses</option>
-                            <option value="Available">Available</option>
-                            <option value="Issued">Issued</option>
-                        </select>
+
+                    <div class="filters-group">
+                        <div class="select-wrapper">
+                            <label for="filter-genre"><i class="fa-solid fa-filter"></i> Genre:</label>
+                            <select id="filter-genre">
+                                <option value="all">All Genres</option>
+                                <option value="Programming">Programming</option>
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Data Science">Data Science</option>
+                                <option value="Software Architecture">Software Architecture</option>
+                                <option value="Fiction">Fiction</option>
+                            </select>
+                        </div>
+
+                        <div class="select-wrapper">
+                            <label for="filter-status"><i class="fa-solid fa-circle-dot"></i> Status:</label>
+                            <select id="filter-status">
+                                <option value="all">All Statuses</option>
+                                <option value="Available">Available</option>
+                                <option value="Issued">Issued</option>
+                            </select>
+                        </div>
+
+                        <div class="select-wrapper">
+                            <label for="sort-select"><i class="fa-solid fa-arrow-down-a-z"></i> Sort:</label>
+                            <select id="sort-select">
+                                <option value="newest">Newest Added</option>
+                                <option value="title-asc">Title (A-Z)</option>
+                                <option value="title-desc">Title (Z-A)</option>
+                                <option value="author-asc">Author (A-Z)</option>
+                            </select>
+                        </div>
+
+                        <div class="view-toggle">
+                            <button class="view-btn active" id="view-cards-btn" title="Grid View">
+                                <i class="fa-solid fa-grip"></i>
+                            </button>
+                            <button class="view-btn" id="view-table-btn" title="Table View">
+                                <i class="fa-solid fa-table-list"></i>
+                            </button>
+                        </div>
+
+                        <button class="btn-secondary" id="reset-data-btn" title="Reload sample books">
+                            <i class="fa-solid fa-rotate"></i> Reset Sample Data
+                        </button>
                     </div>
                 </div>
 
-                <div class="table-container">
-                    <table class="books-table">
-                        <thead>
-                            <tr>
-                                <th>Book Title</th>
-                                <th>Author</th>
-                                <th>Genre</th>
-                                <th>ISBN</th>
-                                <th>Status</th>
-                                <th class="text-right">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="books-tbody">
-                            <!-- Dynamic rows rendered via JS -->
-                        </tbody>
-                    </table>
+                <!-- Books Container: Grid View -->
+                <div class="books-grid" id="books-grid">
+                    <!-- Dynamic book cards rendered by JS -->
+                </div>
+
+                <!-- Books Container: Table View -->
+                <div class="table-card hidden" id="books-table-wrapper">
+                    <div class="table-responsive">
+                        <table class="books-table">
+                            <thead>
+                                <tr>
+                                    <th>Cover &amp; Title</th>
+                                    <th>Author</th>
+                                    <th>Genre</th>
+                                    <th>ISBN</th>
+                                    <th>Shelf</th>
+                                    <th>Status</th>
+                                    <th class="text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="books-tbody">
+                                <!-- Dynamic rows rendered by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div class="empty-state hidden" id="empty-state">
+                    <div class="empty-icon"><i class="fa-solid fa-book-open"></i></div>
+                    <h3>No books found</h3>
+                    <p>Try adjusting your search query or filters, or add a new book to the library.</p>
+                    <button class="btn-primary" id="empty-add-btn">
+                        <i class="fa-solid fa-plus"></i> Add New Book
+                    </button>
+                </div>
+            </section>
+
+            <!-- Tab 2: Issued Books / Active Loans -->
+            <section class="tab-pane" id="tab-loans">
+                <div class="loans-header">
+                    <div class="loans-title">
+                        <h3><i class="fa-solid fa-clipboard-check"></i> Active Borrowers &amp; Loans</h3>
+                        <p>Track members who currently have books checked out.</p>
+                    </div>
+                </div>
+
+                <div class="loans-table-wrapper table-card">
+                    <div class="table-responsive">
+                        <table class="books-table">
+                            <thead>
+                                <tr>
+                                    <th>Book</th>
+                                    <th>Borrower Name</th>
+                                    <th>Borrower Contact / ID</th>
+                                    <th>Issue Date</th>
+                                    <th>Due Date</th>
+                                    <th>Due Status</th>
+                                    <th class="text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="loans-tbody">
+                                <!-- Dynamic loan rows rendered by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="empty-state hidden" id="empty-loans">
+                    <div class="empty-icon"><i class="fa-solid fa-circle-check"></i></div>
+                    <h3>No Active Loans</h3>
+                    <p>All books in the library are currently returned and available on the shelves!</p>
                 </div>
             </section>
         </main>
 
-        <!-- Add Book Modal -->
-        <div class="modal" id="book-modal">
+        <!-- Footer -->
+        <footer class="lib-footer">
+            <p>LibriTrack — Library Management System &bull; Designed &amp; Developed for Portfolio Project</p>
+        </footer>
+
+        <!-- Modal: Add / Edit Book -->
+        <div class="modal" id="book-modal" aria-hidden="true">
             <div class="modal-overlay" id="modal-overlay"></div>
             <div class="modal-dialog">
                 <div class="modal-header">
-                    <h3>Add New Book to Library</h3>
-                    <button class="close-modal" id="close-modal-btn"><i class="fa-solid fa-xmark"></i></button>
+                    <div class="modal-title-wrap">
+                        <i class="fa-solid fa-book-medical" id="modal-header-icon"></i>
+                        <h3 id="modal-title">Add New Book</h3>
+                    </div>
+                    <button class="close-modal" id="close-modal-btn" aria-label="Close modal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
                 </div>
-                <form id="add-book-form" class="modal-form">
+
+                <form id="book-form" class="modal-form">
+                    <input type="hidden" id="edit-book-id" value="">
+
                     <div class="form-group">
-                        <label for="book-title">Book Title</label>
-                        <input type="text" id="book-title" placeholder="e.g. Clean Code" required>
+                        <label for="book-title">Book Title <span class="required">*</span></label>
+                        <input type="text" id="book-title" placeholder="e.g. Designing Data-Intensive Applications" required>
                     </div>
-                    <div class="form-group">
-                        <label for="book-author">Author Name</label>
-                        <input type="text" id="book-author" placeholder="e.g. Robert C. Martin" required>
-                    </div>
+
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="book-genre">Genre / Category</label>
-                            <select id="book-genre">
-                                <option value="Programming">Programming</option>
-                                <option value="Computer Science">Computer Science</option>
-                                <option value="Fiction">Fiction</option>
-                                <option value="Science">Science</option>
-                                <option value="Business">Business</option>
-                            </select>
+                            <label for="book-author">Author Name <span class="required">*</span></label>
+                            <input type="text" id="book-author" placeholder="e.g. Martin Kleppmann" required>
                         </div>
                         <div class="form-group">
-                            <label for="book-isbn">ISBN / Code</label>
-                            <input type="text" id="book-isbn" placeholder="e.g. 978-0132350884" required>
+                            <label for="book-genre">Genre / Category <span class="required">*</span></label>
+                            <select id="book-genre" required>
+                                <option value="Programming">Programming</option>
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Data Science">Data Science</option>
+                                <option value="Software Architecture">Software Architecture</option>
+                                <option value="Fiction">Fiction</option>
+                                <option value="General Science">General Science</option>
+                            </select>
                         </div>
                     </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="book-isbn">ISBN / Code <span class="required">*</span></label>
+                            <input type="text" id="book-isbn" placeholder="e.g. 978-1449373320" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="book-shelf">Shelf Location</label>
+                            <input type="text" id="book-shelf" placeholder="e.g. Shelf A-3, Row 2">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="book-cover">Cover Image URL (Optional)</label>
+                        <input type="url" id="book-cover" placeholder="https://images.unsplash.com/... (or leave blank for generated cover)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="book-desc">Description / Summary</label>
+                        <textarea id="book-desc" rows="3" placeholder="Brief synopsis or key topics covered in this book..."></textarea>
+                    </div>
+
                     <div class="modal-actions">
                         <button type="button" class="btn-cancel" id="cancel-modal-btn">Cancel</button>
-                        <button type="submit" class="btn-submit">Add Book</button>
+                        <button type="submit" class="btn-primary" id="save-book-btn">
+                            <i class="fa-solid fa-floppy-disk"></i> Save Book
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
+
+        <!-- Modal: Issue Book -->
+        <div class="modal" id="issue-modal" aria-hidden="true">
+            <div class="modal-overlay" id="issue-modal-overlay"></div>
+            <div class="modal-dialog">
+                <div class="modal-header">
+                    <div class="modal-title-wrap">
+                        <i class="fa-solid fa-hand-holding-hand" style="color: #f59e0b;"></i>
+                        <h3>Issue Book to Member</h3>
+                    </div>
+                    <button class="close-modal" id="close-issue-modal-btn" aria-label="Close modal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <form id="issue-book-form" class="modal-form">
+                    <input type="hidden" id="issue-book-id" value="">
+
+                    <div class="issue-book-preview">
+                        <span class="preview-label">Issuing Book:</span>
+                        <h4 id="issue-book-title-display">Book Title</h4>
+                        <p id="issue-book-author-display">by Author</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="borrower-name">Member / Student Name <span class="required">*</span></label>
+                        <input type="text" id="borrower-name" placeholder="e.g. Rahul Sharma" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="borrower-contact">Student ID / Contact <span class="required">*</span></label>
+                            <input type="text" id="borrower-contact" placeholder="e.g. NIT-IT-2024-042" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="return-due-date">Due Return Date <span class="required">*</span></label>
+                            <input type="date" id="return-due-date" required>
+                        </div>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="button" class="btn-cancel" id="cancel-issue-btn">Cancel</button>
+                        <button type="submit" class="btn-primary">
+                            <i class="fa-solid fa-check"></i> Confirm Issue
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Toast Notifications Container -->
+        <div class="toast-container" id="toast-container"></div>
+
     </div>
 
+    <!-- Application Script -->
     <script src="script.js"></script>
 </body>
 </html>
